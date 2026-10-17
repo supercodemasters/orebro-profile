@@ -1,0 +1,36 @@
+$max-width: 64rem;
+$gutter: 1rem;
+$radius: 0.75rem;
+$bp-md: 48rem;
+
+@mixin light {
+  --bg: #f7f8f7;
+  --surface: #ffffff;
+  --text: #1c2526;
+  --muted: #4d5b5d;
+  --border: #dbe2e2;
+  --accent: #1f5f6b;
+  --accent-text: #ffffff;
+  --accent-soft: #e3eef0;
+}
+
+@mixin dark {
+  --bg: #121819;
+  --surface: #1a2224;
+  --text: #e8eeee;
+  --muted: #a9b7b9;
+  --border: #2c3739;
+  --accent: #7cc4cf;
+  --accent-text: #0d1a1c;
+  --accent-soft: #1d3135;
+}
+
+:root {
+  @include light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark;
+  }
+}

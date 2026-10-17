@@ -1,0 +1,80 @@
+@use 'tokens' as *;
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+.lang-btn {
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: $radius;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  overflow-wrap: anywhere;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.btn-ghost {
+  color: var(--accent);
+  background: transparent;
+
+  &:hover {
+    background: var(--accent-soft);
+  }
+}
+
+.icon,
+.icon-sm {
+  flex: none;
+  color: var(--accent);
+}
+
+.icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-sm {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: currentColor;
+}
