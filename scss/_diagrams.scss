@@ -1,0 +1,108 @@
+// Diagram styles: colours come only from CSS custom properties
+.diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+  font-family: inherit;
+  overflow: visible;
+
+  text {
+    font-family: inherit;
+  }
+
+  marker path {
+    stroke: none;
+  }
+}
+
+.dg-bg {
+  fill: var(--surface-2);
+}
+
+.dg-box {
+  fill: var(--surface);
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+
+.dg-box-accent {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.dg-line,
+.dg-flow {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dg-line {
+  stroke: var(--muted);
+}
+
+.dg-flow {
+  stroke: var(--accent);
+  stroke-dasharray: 7 6;
+}
+
+.dg-text {
+  fill: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dg-sub {
+  fill: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.dg-accent {
+  fill: var(--accent);
+}
+
+.dg-on-accent {
+  fill: var(--accent-text);
+  font-weight: 700;
+}
+
+.dg-bar {
+  fill: var(--accent);
+}
+
+.dg-bar-2 {
+  fill: var(--accent-2);
+}
+
+@keyframes dg-dash {
+  to {
+    stroke-dashoffset: -26;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dg-flow {
+    animation: dg-dash 1.6s linear infinite;
+  }
+}
+
+.dg-narrow {
+  display: block;
+}
+
+.dg-wide {
+  display: none;
+}
+
+@media (min-width: 40rem) {
+  .dg-narrow {
+    display: none;
+  }
+
+  .dg-wide {
+    display: block;
+  }
+}

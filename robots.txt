@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /LICENSES/
+
+Sitemap: https://renvolve.biz/sitemap.xml

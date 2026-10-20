@@ -1,29 +1,48 @@
 @use 'tokens' as *;
 
-.topbar {
-  display: flex;
-  justify-content: space-between;
+.btn {
+  display: inline-flex;
   align-items: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.brand {
-  font-weight: 700;
-}
-
-.lang-btn {
-  font: inherit;
-  font-size: 0.9375rem;
-  color: var(--text);
-  background: transparent;
-  border: 1px solid var(--border);
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3rem;
+  padding: 0.7rem 1.35rem;
   border-radius: 999px;
-  padding: 0.35rem 0.9rem;
-  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9875rem;
+  text-decoration: none;
+  border: 1.5px solid var(--accent);
+  overflow-wrap: anywhere;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 
   &:hover {
-    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  img,
+  svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex: none;
+  }
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+  box-shadow: var(--shadow);
+
+  &:hover {
+    background: var(--accent-strong);
+  }
+}
+
+.btn-ghost {
+  color: var(--accent-strong);
+  background: var(--surface);
+
+  &:hover {
+    background: var(--accent-soft);
   }
 }
 
@@ -31,50 +50,157 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 1.5rem 0 1rem;
+  margin: 1.75rem 0 1rem;
 }
 
-.btn {
+.ico {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+}
+
+.ico-mask {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: currentColor;
+  mask: var(--ico) center / contain no-repeat;
+  -webkit-mask: var(--ico) center / contain no-repeat;
+}
+
+.badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  min-height: 2.75rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: $radius;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: var(--step--1);
   font-weight: 600;
-  text-decoration: none;
-  border: 1px solid var(--accent);
-  overflow-wrap: anywhere;
 }
 
-.btn-primary {
-  background: var(--accent);
-  color: var(--accent-text);
-}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-.btn-ghost {
-  color: var(--accent);
-  background: transparent;
-
-  &:hover {
-    background: var(--accent-soft);
+  li {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: 0.9375rem;
   }
 }
 
-.icon,
-.icon-sm {
-  flex: none;
-  color: var(--accent);
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    margin-top: 0.9rem;
+  }
+
+  h3 a {
+    color: var(--text);
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .ico-wrap {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--accent);
+  }
 }
 
-.icon {
-  width: 1.75rem;
-  height: 1.75rem;
+.faq details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  padding: 0 1.25rem;
   margin-bottom: 0.75rem;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 1rem 0;
+    list-style-position: outside;
+  }
+
+  p {
+    color: var(--muted);
+    margin: 0 0 1rem;
+  }
 }
 
-.icon-sm {
-  width: 1.125rem;
-  height: 1.125rem;
-  color: currentColor;
+.figure {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  box-shadow: var(--shadow);
+
+  figcaption {
+    font-size: var(--step--1);
+    color: var(--muted);
+    margin-top: 0.75rem;
+  }
+}
+
+.photo {
+  margin: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: $radius;
+    box-shadow: var(--shadow-lg);
+  }
+
+  figcaption {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
 }
